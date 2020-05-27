@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
+import Icon from 'react-native-vector-icons/Ionicons'
 
-import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity } from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 
-const { height, width } = Dimensions.get('window')
-import Swiper from 'react-native-swiper'
+var { width } = Dimensions.get("window")
+
+import Food from './Food'
+import Cart from './Cart'
+import Address from './Address'
+import Profile from './Profile'
+
+console.disableYellowBox = true;
 
 export default class App extends Component {
 
