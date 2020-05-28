@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity, Swiper } from 'react-native'
+import Swiper from 'react-native-swiper'
 
-const { height, width } = Dimensions.get('window');
+import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity} from 'react-native'
+
+const { height, width } = Dimensions.get('window')
 
 export default class App extends Component {
 
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10
   },
-  
+
   imageFood: {
     width: ((width / 2) - 20) - 10,
     height: ((width / 2) - 20) - 30,
