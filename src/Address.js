@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View, TextInput, TouchableOpacity } from 'react-native'
 
 export default class Address extends Component {
 
@@ -15,6 +15,6 @@ export default class Address extends Component {
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
          <Text>Address</Text>
       </View>
-    );
+    )
   }
 }
