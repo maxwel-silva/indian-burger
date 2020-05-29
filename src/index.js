@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+
+import Icon from 'react-native-vector-icons/Ionicons'
+
 import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 
 const { width } = Dimensions.get("window")
@@ -9,8 +12,6 @@ import Address from './Address'
 import Profile from './Profile'
 
 console.disableYellowBox = true
-
-import Icon from 'react-native-vector-icons/Ionicons'
 
 export default class App extends Component {
 
@@ -54,6 +55,7 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
+  
   bottomTab:{
     height:60,
     width:width,
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
     shadowOpacity:0.3,
     shadowRadius:50,
   },
+
   itemTab:{
     width:width/4,
     backgroundColor:'white',

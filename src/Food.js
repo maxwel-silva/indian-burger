@@ -106,6 +106,11 @@ export default class App extends Component {
           </Text>
           <Text>Descp Food and Details</Text>
           <Text style={{ fontSize: 25, color: 'green' }}>${item.price}</Text>
+
+          <TouchableOpacity>
+
+          </TouchableOpacity>
+          
         </TouchableOpacity>
       )
     }
