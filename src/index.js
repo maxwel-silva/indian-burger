@@ -33,7 +33,7 @@ export default class App extends Component {
          <View style={styles.bottomTab}>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:1})}>
              <Icon name="md-restaurant" size={30} color={this.state.module==1?"#900":"gray"} />
-             <Text>Comida</Text>
+             <Text>Cardápio</Text>
            </TouchableOpacity>
            <TouchableOpacity style={styles.itemTab} onPress={()=>this.setState({module:2})}>
              <Icon name="md-basket" size={30} color={this.state.module==2?"#900":"gray"} />
