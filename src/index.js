@@ -17,6 +17,6 @@ export default class Index extends Component {
       <View style={{ flex: 1 }}>
         <Food/>
       </View>
-    );
+    )
   }
 }

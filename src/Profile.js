@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View, TextInput, TouchableOpacity } from 'react-native'
 
 export default class Profile extends Component {
 
@@ -7,7 +7,7 @@ export default class Profile extends Component {
      super(props);
      this.state = {
        data:"",
-     };
+     }
   }
 
   render() {
@@ -15,6 +15,6 @@ export default class Profile extends Component {
       <View style={{flex:1,alignItems: 'center', justifyContent: 'center'}}>
          <Text>Profile</Text>
       </View>
-    );
+    )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Swiper from 'react-native-swiper'
 
-import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity} from 'react-native'
+import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 
 const { height, width } = Dimensions.get('window')
 
@@ -40,14 +40,14 @@ export default class App extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={{ flex: 1, backgroundColor: '#F1F1F1' }}>
+        <View style={{ flex: 1, backgroundColor: "#f2f2f2" }}>
           <View style={{ width: width, alignItems: 'center' }} >
-            <Image style={{ height: 150, width: width / 2, margin: 10, marginTop: 50 }} resizeMode="contain" source={require("../image/indian.png")} />
+            <Image style={{ height: 60, width: width / 2, margin: 10, marginTop: 50 }} resizeMode='center' source={require("../image/indian.png")} />
             <Swiper style={{ height: width / 2 }} showsButtons={false} autoplay={true} autoplayTimeout={2}>
               {
                 this.state.dataBanner.map((itembann) => {
                   return (
-                    <Image style={styles.imageBanner} resizeMode='contain' source={{ uri: itembann }} />
+                    <Image style={styles.imageBanner} resizeMode='center' source={{ uri: itembann }} />
                   )
                 })
               }
@@ -55,7 +55,8 @@ export default class App extends Component {
             <View style={{ height: 20 }} />
           </View>
 
-          <View style={{ width: width, paddingVertical: 20, backgroundColor: 'white' }}>
+          <View style={{ width: width, borderRadius: 20, paddingVertical: 20, backgroundColor: 'white' }}>
+            <Text style={styles.titleCatg}>  Categorias</Text>
             <FlatList
               horizontal={true}
               data={this.state.dataCategories}
@@ -83,9 +84,9 @@ export default class App extends Component {
         onPress={() => this.setState({ selectCatg: item.id })}>
         <Image
           style={{ width: 100, height: 80 }}
-          resizeMode='contain'
+          resizeMode="contain"
           source={{ uri: item.image }} />
-        <Text style={{ fontWeight: 'normal', fontSize: 20 }}>{item.name}</Text>
+        <Text style={{ fontWeight: 'bold', fontSize: 22 }}>{item.name}</Text>
       </TouchableOpacity>
     )
   }
@@ -100,7 +101,7 @@ export default class App extends Component {
             resizeMode="contain"
             source={{ uri: item.image }} />
           <View style={{ height: ((width / 2) - 20) - 90, backgroundColor: 'transparent', width: ((width / 2) - 20) - 10 }} />
-          <Text style={{ fontWeight: 'normal', fontSize: 22, textAlign: 'center' }}>
+          <Text style={{ fontWeight: 'bold', fontSize: 22, textAlign: 'center' }}>
             {item.name}
           </Text>
           <Text>Descp Food and Details</Text>
