@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-
 import Swiper from 'react-native-swiper'
+import AsyncStorage from '@react-native-community/async-storage'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 import { Text, FlatList, Image, StyleSheet, Dimensions, View, ScrollView, TextInput, TouchableOpacity } from 'react-native'
 
@@ -96,69 +97,97 @@ export default class App extends Component {
     if (catg == 0 || catg == item.categorie) {
       return (
         <TouchableOpacity style={styles.divFood}>
-          <Image
-            style={styles.imageFood}
-            resizeMode='contain'
-            source={{ uri: item.image }} />
+          <Image style={styles.imageFood} resizeMode='contain' source={{ uri: item.image }} />
           <View style={{ height: ((width / 2) - 20) - 90, backgroundColor: 'transparent', width: ((width / 2) - 20) - 10 }} />
-          <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center' }}>
-            {item.name}
-          </Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 20, textAlign: 'center' }}>{item.name}</Text>
           <Text>Descp Food and Details</Text>
           <Text style={{ fontSize: 25, color: 'green' }}>${item.price}</Text>
 
-          <TouchableOpacity>
-
+          <TouchableOpacity
+            onPress={() => this.onClickAddCart(item)}
+            style={{
+              width: (width / 2) - 40,
+              backgroundColor: '#33c37d',
+              alignItems: 'center',
+              justifyContent: "center",
+              borderRadius: 5,
+              padding: 5,
+              flexDirection: 'row',
+         
+            }}>
+            <Text style={{ fontSize: 18, color: "white", fontWeight: "bold" }}>Adicionar</Text>
+            <View style={{ width: 10 }} />
+            <Icon name="ios-add-circle" size={30} color={"white"} />
           </TouchableOpacity>
-          
         </TouchableOpacity>
       )
     }
+  }
+
+  onClickAddCart(data) {
+
+    const itemcart = {
+      food: data,
+      quantity: 1,
+      price: data.price
+    }
+
+    AsyncStorage.getItem('cart').then((datacart) => {
+      if (datacart !== null) {
+        const cart = JSON.parse(datacart)
+        cart.push(itemcart)
+        AsyncStorage.setItem('cart', JSON.stringify(cart));
+      }
+      else {
+        const cart = []
+        cart.push(itemcart)
+        AsyncStorage.setItem('cart', JSON.stringify(cart));
+      }
+      alert("Adicionado")
+    })
+      .catch((err) => {
+        alert(err)
+      })
   }
 }
 
 const styles = StyleSheet.create({
   imageBanner: {
-    height: width / 2,
-    width: width - 40,
-    borderRadius: 10,
-    marginHorizontal: 20,
+    height:width/2,
+    width:width-40,
+    borderRadius:10,
+    marginHorizontal:20
   },
-
-  divCategorie: {
-    backgroundColor: 'red',
-    margin: 5,
-    alignItems: 'center',
-    borderRadius: 10,
-    padding: 10
+  divCategorie:{
+    backgroundColor:'red',
+    margin:5, alignItems:'center',
+    borderRadius:10,
+    padding:10
   },
-
-  titleCatg: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 10
+  titleCatg:{
+    fontSize:30,
+    fontWeight:'bold',
+    textAlign:'center',
+    marginBottom:10
   },
-
-  imageFood: {
-    width: ((width / 2) - 20) - 10,
-    height: ((width / 2) - 20) - 30,
-    backgroundColor: 'transparent',
-    position: 'absolute',
-    top: -45
+  imageFood:{
+    width:((width/2)-20)-10,
+    height:((width/2)-20)-30,
+    backgroundColor:'transparent',
+    position:'absolute',
+    top:-45
   },
-
-  divFood: {
-    width: (width / 2) - 20,
-    padding: 10,
-    borderRadius: 10,
-    marginTop: 55,
-    marginBottom: 5,
-    marginLeft: 13.1,
-    alignItems: 'center',
-    elevation: 8,
-    shadowOpacity: 0.3,
-    shadowRadius: 50,
-    backgroundColor: 'white',
+  divFood:{
+    width:(width/2)-20,
+    padding:10,
+    borderRadius:10,
+    marginTop:55,
+    marginBottom:5,
+    marginLeft:13.2,
+    alignItems:'center',
+    elevation:8,
+    shadowOpacity:0.3,
+    shadowRadius:50,
+    backgroundColor:'white',
   }
 })

@@ -55,7 +55,6 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-  
   bottomTab:{
     height:60,
     width:width,
@@ -66,7 +65,7 @@ const styles = StyleSheet.create({
     shadowOpacity:0.3,
     shadowRadius:50,
   },
-
+  
   itemTab:{
     width:width/4,
     backgroundColor:'white',
