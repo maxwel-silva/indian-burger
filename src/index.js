@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Icon from 'react-native-vector-icons/Ionicons'
 
-import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StyleSheet, Dimensions } from 'react-native'
 
 const { width } = Dimensions.get("window")
 
