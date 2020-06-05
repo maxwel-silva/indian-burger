@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
-
 import AsyncStorage from '@react-native-community/async-storage';
-
 import { Text, View, TextInput, Image, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from 'react-native'
 
 const { width } = Dimensions.get("window")
@@ -32,13 +30,11 @@ export default class Cart extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View style={{ height: 20 }} />
-        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#33c37d" }}>Cart food</Text>
+        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#33c37d", marginTop: 30 }}>Carrinho</Text>
         <View style={{ height: 10 }} />
-
         <View style={{ flex: 1 }}>
 
           <ScrollView>
-
             {
               this.state.dataCart.map((item, i) => {
                 return (
@@ -67,7 +63,7 @@ export default class Cart extends Component {
               })
             }
 
-            <View style={{ height: 20 }} />
+            <View style={{ height: 10 }} />
 
             <TouchableOpacity style={{
               backgroundColor: "#33c37d",
@@ -82,11 +78,13 @@ export default class Cart extends Component {
                 fontWeight: "bold",
                 color: 'white'
               }}>
-                CHECKOUT
+                Checkout
              </Text>
             </TouchableOpacity>
 
             <View style={{ height: 20 }} />
+
+
           </ScrollView>
 
         </View>

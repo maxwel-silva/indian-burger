@@ -104,19 +104,18 @@ export default class App extends Component {
           <Text style={{ fontSize: 25, color: 'green' }}>${item.price}</Text>
 
           <TouchableOpacity
-            onPress={() => this.onClickAddCart(item)}
+            onPress={()=>this.onClickAddCart(item)}
             style={{
-              width: (width / 2) - 40,
-              backgroundColor: '#33c37d',
-              alignItems: 'center',
-              justifyContent: "center",
-              borderRadius: 5,
-              padding: 5,
-              flexDirection: 'row',
-         
+              width:(width/2)-40,
+              backgroundColor:'#33c37d',
+              flexDirection:'row',
+              alignItems:'center',
+              justifyContent:"center",
+              borderRadius:5,
+              padding:4
             }}>
-            <Text style={{ fontSize: 18, color: "white", fontWeight: "bold" }}>Adicionar</Text>
-            <View style={{ width: 10 }} />
+            <Text style={{fontSize:18, color:"white", fontWeight:"bold"}}>Add Cart</Text>
+            <View style={{width:10}} />
             <Icon name="ios-add-circle" size={30} color={"white"} />
           </TouchableOpacity>
         </TouchableOpacity>
@@ -124,28 +123,28 @@ export default class App extends Component {
     }
   }
 
-  onClickAddCart(data) {
+  onClickAddCart(data){
 
     const itemcart = {
       food: data,
       quantity: 1,
       price: data.price
     }
-
-    AsyncStorage.getItem('cart').then((datacart) => {
-      if (datacart !== null) {
-        const cart = JSON.parse(datacart)
-        cart.push(itemcart)
-        AsyncStorage.setItem('cart', JSON.stringify(cart));
-      }
-      else {
-        const cart = []
-        cart.push(itemcart)
-        AsyncStorage.setItem('cart', JSON.stringify(cart));
-      }
-      alert("Adicionado")
-    })
-      .catch((err) => {
+ 
+    AsyncStorage.getItem('cart').then((datacart)=>{
+        if (datacart !== null) {
+          const cart = JSON.parse(datacart)
+          cart.push(itemcart)
+          AsyncStorage.setItem('cart',JSON.stringify(cart));
+        }
+        else{
+          const cart  = []
+          cart.push(itemcart)
+          AsyncStorage.setItem('cart',JSON.stringify(cart));
+        }
+        alert("Add Succesful")
+      })
+      .catch((err)=>{
         alert(err)
       })
   }

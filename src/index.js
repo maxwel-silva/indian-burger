@@ -18,7 +18,7 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      module: 1,
+      module: 1
     }
   }
 
