@@ -30,7 +30,7 @@ export default class Cart extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <View style={{ height: 20 }} />
-        <Text style={{ fontSize: 32, fontWeight: "bold", color: "#33c37d", marginTop: 30 }}>Carrinho</Text>
+        <Text style={{ fontSize: 32, fontWeight: 'bold', color: "#33c37d", marginTop: 30 }}>Carrinho</Text>
         <View style={{ height: 10 }} />
         <View style={{ flex: 1 }}>
 
